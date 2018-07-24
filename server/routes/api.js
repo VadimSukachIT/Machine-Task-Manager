@@ -39,7 +39,7 @@ router.post('/users', (req, res) => {
   }).then(token => {
     res.header('x-auth', token).send(user);
   }).catch(err => {
-    res.status(400).send(err);
+    res.status(400).send(err.message);
   });
 });
 
@@ -61,10 +61,10 @@ router.get('/users', (req, res) => {
 
 router.post('/users/login', (req, res) => {
   let body = lodash.pick(req.body, ['email', 'password']);
-
+  console.log(body.email, body.password);
   userModel.findByCredentials(body.email, body.password).then(user => {
     return user.generateAuthToken().then(token => {
-      res.header('x-auth', token).send(user);
+      res.header('x-auth', token).send({user, token});
     });
   }).catch(err => {
     res.status(400).send();
@@ -112,15 +112,27 @@ router.get('/androids', (req, res) => {
 router.put('/android/assign', (req, res) => {
   let body = lodash.pick(req.body, ['androidId', 'jobId']);
 
- connection(async (db) => {
-    const android = await db.collection('androids').findOne({ _id: new ObjectID (body.androidId)});
-    const queryBody = { assignedJob: body.jobId };
+  connection(async (db) => {
+    const android = await db.collection('androids').findOne({_id: new ObjectID(body.androidId)});
+    const queryBody = {assignedJob: body.jobId};
     if (android.reliability > 10) {
       queryBody.status = false;
     }
-    const result = await db.collection('androids').update({ _id: new ObjectID(body.androidId)}, { $set: queryBody});
+    const result = await db.collection('androids').update({_id: new ObjectID(body.androidId)}, {$set: queryBody});
     res.send(result);
   });
+});
+
+router.delete('/androids/android/:id', (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+
+  connection(async (db) => {
+    const result = await db.collection('androids').findOneAndDelete({_id: new ObjectID(id)}).catch(error => {
+      res.status(400).send(error);
+    });
+    res.send(result);
+  })
 });
 
 
@@ -150,6 +162,17 @@ router.get('/jobs', (req, res) => {
   });
 });
 
+router.delete('/jobs/job/:id', (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+
+  connection(async (db) => {
+    const result = await db.collection('jobs').findOneAndDelete({_id: new ObjectID(id)}).catch(error => {
+      res.status(400).send(error);
+    });
+    res.send(result);
+  })
+});
 
 
 module.exports = router;

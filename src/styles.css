@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+body, html {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+.main-page {
+  width: 100%;
+  min-height: 100vh;
+  background: url("app/background.png") repeat-y;
+  background-size: cover;
+}

@@ -1,0 +1,190 @@
+.a {
+  position: relative;
+  margin: 20px;
+
+
+  &:hover {
+
+    .b:before {
+      width: 100%;
+      height: 50px;
+    }
+
+    .b:after {
+      width: 100%;
+      height: 50px;
+    }
+
+    &:before {
+      width: 100%;
+      height: 50px;
+    }
+    &:after {
+      width: 100%;
+      height: 50px;
+    }
+  }
+}
+
+.a:before {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  left: -10px;
+  border-top: 2px solid #000;
+  border-left: 2px solid #000;
+  transition: width 1s, height 1s;
+}
+
+.a:after {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  right: -10px;
+  border-top: 2px solid #000;
+  border-right: 2px solid #000;
+  transition: width 1s, height 1s;
+}
+
+.b:before {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: 0;
+  left: -10px;
+  border-bottom: 2px solid #000;
+  border-left: 2px solid #000;
+  transition: width 1s, height 1s;
+}
+
+.b:after {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: 0;
+  right: -10px;
+  border-bottom: 2px solid #000;
+  border-right: 2px solid #000;
+  transition: width 1s, height 1s;
+
+}
+
+.android {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 15px;
+  box-sizing: border-box;
+  height: 90px;
+
+  .android-description {
+    display: flex;
+
+    .android-avatar {
+      width: 50px;
+      height: 50px;
+
+      .android-avatar-img {
+        width: 50px;
+        height: 50px;
+      }
+
+    }
+
+    .android-name-and-buttons {
+      display: flex;
+      padding-left: 10px;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .android-name-and-status {
+        display: flex;
+        align-items: center;
+
+        .android-name {
+          text-transform: uppercase;
+          font-family: "Helvetica Neue", serif;
+          letter-spacing: 1px;
+          margin-left: 10px;
+        }
+
+        .android-status {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: green;
+          display: inline-block;
+          margin-left: 10px;
+        }
+      }
+
+      .tag {
+        margin: 0 10px;
+      }
+
+    }
+
+    .android-buttons {
+      display: flex;
+      justify-content: space-between;
+
+      .btn {
+        outline: none;
+        border: none;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+      }
+
+      .android-edit-btn {
+        background: url("../../../imgs/edit.svg") no-repeat;
+        background-size: cover;
+      }
+
+      .android-delete-btn {
+        background: url("../../../imgs/trash.svg") no-repeat;
+        background-size: cover;
+      }
+
+    }
+
+    .android-reliability {
+      font-family: "Helvetica Neue", serif;
+      font-size: 18px;
+    }
+
+  }
+
+  .android-job-description {
+    display: flex;
+    flex-direction: column;
+
+    .job-name {
+      font-family: "Helvetica Neue", serif;
+      font-size: 17px;
+      letter-spacing: 1px;
+      text-transform: lowercase;
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+
+    .job-complexity {
+      font-family: "Helvetica Neue", serif;
+      font-size: 15px;
+      color: rgb(101, 101, 101);
+      letter-spacing: 2px;
+      text-transform: lowercase;
+    }
+  }
+}

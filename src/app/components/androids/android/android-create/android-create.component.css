@@ -1,0 +1,106 @@
+.create-android {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.create-android .wrapper {
+  width: 200px;
+  padding-top: 40px;
+}
+.create-android .wrapper .form-header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.create-android .wrapper .form-header .header {
+  text-transform: uppercase;
+  font-family: "Helvetica Neue", serif;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.create-android .wrapper .form-header .cancel {
+  padding: 10px 0 15px 0;
+}
+.create-android .wrapper .form-header .cancel a {
+  font-family: "Helvetica Neue", serif;
+  text-transform: lowercase;
+  font-size: 14px;
+  color: red;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+.create-android .wrapper .create-android-form {
+  display: flex;
+  flex-direction: column;
+}
+.create-android .wrapper .create-android-form input,
+.create-android .wrapper .create-android-form textarea {
+  margin-bottom: 20px;
+  padding: 5px;
+  outline: none;
+  border: none;
+  font-family: "Helvetica Neue", serif;
+  font-size: 15px;
+}
+.create-android .wrapper .create-android-form .submit-btn {
+  outline: 0;
+  border: 0;
+  background: url("../../../../maxresdefault.png") no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  color: white;
+  font-family: "Avenir", serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+.a {
+  position: relative;
+  margin: 20px;
+}
+.a:before {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  border-top: 2px solid #000;
+  border-left: 2px solid #000;
+}
+.a:after {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: -10px;
+  right: -25px;
+  border-top: 2px solid #000;
+  border-right: 2px solid #000;
+}
+.b:before {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: 9px;
+  left: -10px;
+  border-bottom: 2px solid #000;
+  border-left: 2px solid #000;
+}
+.b:after {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: 9px;
+  right: -25px;
+  border-bottom: 2px solid #000;
+  border-right: 2px solid #000;
+}

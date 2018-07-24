@@ -15,26 +15,27 @@ let AndroidSchema = new Schema({
       message: `Not valid name.`
     }
   },
-  avatarURL: {
-    type: {
-      data: String,
-      default: ''
-    }
+  avatar: {
+    type: String,
+    required: true,
+    default: 'https://i.ytimg.com/vi/IsTt9eT6snA/maxresdefault.jpg',
   },
   reliability: {
     type: Number,
-    default: 10
+    default: 10,
+    required: true
   },
   status: {
     type: Boolean,
-    default: true
+    default: true,
+    required: true
   },
   skills: {
     type: [String]
   },
   assignedJob: {
     type: String,
-    default: null
+    default: 'Without a  job'
   },
 });
 

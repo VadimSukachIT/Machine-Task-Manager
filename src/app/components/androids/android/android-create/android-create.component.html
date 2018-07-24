@@ -1,0 +1,21 @@
+<div class="create-android">
+  <div class="wrapper">
+    <div class="form-header">
+      <span class="header">Create android</span>
+      <span class="cancel"><a routerLink="/androids">cancel</a></span>
+    </div>
+    <form class="create-android-form" autocomplete="off" (ngSubmit)="onSubmit(form)" #form="ngForm" name="myForm">
+
+      <input type="text" placeholder="Name" ngModel name="name" class="name" required #name="ngModel"
+             autocomplete="off">
+
+
+      <textarea placeholder="Skills" ngModel name="tags" class="tags" required #tags="ngModel"
+                autocomplete="off" class="tags"></textarea>
+
+
+      <button type="submit" class="submit-btn" [disabled]="form.invalid || form.pending">Create</button>
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,203 @@
+body, html {
+  width: 100vh;
+  height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.registration-page {
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  background: url("../../../background.png") no-repeat;
+  background-size: cover;
+
+  .header {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 50px;
+
+    .reg-message {
+      font-family: "Helvetica Neue", serif;
+      font-weight: 300;
+      text-transform: uppercase;
+      font-size: 60px;
+      margin: 0;
+      width: fit-content;
+      border-bottom: 1px solid black;
+    }
+
+    .log-message {
+      color: rgb(128, 128, 128);
+      font-family: "Helvetica Neue", serif;
+      text-transform: uppercase;
+      font-weight: 200;
+      margin: 0;
+      padding-top: 5px;
+
+      .login-link {
+        color: black;
+        font-weight: 500;
+        text-decoration: none;
+
+        &:hover {
+          border-bottom: 1px solid black;
+          cursor: pointer;
+        }
+      }
+    }
+
+  }
+
+  .content {
+    width: 100%;
+    height: 70%;
+
+    .registration-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      padding-top: 80px;
+      height: 180px;
+
+      input {
+        outline: none;
+        border: none;
+        width: 160px;
+        height: 23px;
+        padding: 0 5px;
+        font-family: "Helvetica Neue", serif;
+        letter-spacing: 1px;
+        font-size: 12px;
+
+        &::placeholder {
+          color: rgb(128, 128, 128);
+        }
+      }
+
+      //.button-block {
+      //  .absolute-block {
+      //    position: absolute;
+      //
+      //    .top-left-corner {
+      //      position: absolute;
+      //      width: 11px;
+      //      border-top: 2px solid black;
+      //      border-left: 2px solid black;
+      //      height: 8px;
+      //      right: -7px;
+      //      top: -5px;
+      //    }
+      //
+      //    .bottom-left-corner {
+      //      position: absolute;
+      //      border-bottom: 2px solid black;
+      //      width: 11px;
+      //      border-left: 2px solid black;
+      //      height: 9px;
+      //      right: -8px;
+      //      top: 20px;
+      //    }
+      //
+      //    .top-right-corner {
+      //      position: absolute;
+      //      border-right: 2px solid black;
+      //      width: 11px;
+      //      top: -5px;
+      //      border-top: 2px solid black;
+      //      height: 9px;
+      //      left: 160px;
+      //    }
+      //
+      //    .bottom-right-corner {
+      //      position: absolute;
+      //      border-right: 2px solid black;
+      //      width: 11px;
+      //      top: 19px;
+      //      border-bottom: 2px solid black;
+      //      height: 9px;
+      //      left: 160px;
+      //    }
+      //  }
+      //}
+
+      .input {
+
+        .absolute-block {
+          position: absolute;
+
+          .top-left-corner {
+            position: absolute;
+            width: 11px;
+            border-top: 2px solid black;
+            border-left: 2px solid black;
+            height: 8px;
+            right: -7px;
+            top: -5px;
+          }
+
+          .bottom-left-corner {
+            position: absolute;
+            border-bottom: 2px solid black;
+            width: 11px;
+            border-left: 2px solid black;
+            height: 9px;
+            right: -8px;
+            top: 20px;
+          }
+
+          .top-right-corner {
+            position: absolute;
+            border-right: 2px solid black;
+            width: 11px;
+            top: -5px;
+            border-top: 2px solid black;
+            height: 9px;
+            left: 162px;
+          }
+
+          .bottom-right-corner {
+            position: absolute;
+            border-right: 2px solid black;
+            width: 11px;
+            top: 19px;
+            border-bottom: 2px solid black;
+            height: 9px;
+            left: 162px;
+          }
+        }
+      }
+
+      .submit-btn {
+        outline: 0;
+        border: 0;
+        background: url("../../../maxresdefault.png") no-repeat;
+        background-size: cover;
+        width: 166px;
+        height: 25px;
+        cursor: pointer;
+        color: white;
+        font-family: "Avenir", serif;
+        text-align: left;
+        text-transform: uppercase;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        line-height: 10px;
+        padding-top: 1px;
+      }
+    }
+  }
+}
+
+.emailMsg {
+  color: red;
+  font-family: "Helvetica Neue", serif;
+  font-size: 10px;
+}
+
+
+
+

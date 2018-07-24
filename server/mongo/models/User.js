@@ -20,7 +20,7 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-    minlength: 6
+    minlength: 8
   },
   tokens: [{
     access: {
@@ -98,7 +98,7 @@ userSchema.statics.findByCredentials = function (email, password) {
         if (result) {
           resolve(user);
         } else {
-          reject();
+          reject(err);
         }
       })
     });

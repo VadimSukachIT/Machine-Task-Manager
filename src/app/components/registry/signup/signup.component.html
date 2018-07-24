@@ -1,0 +1,125 @@
+<div class="registration-page">
+  <header class="header">
+    <h1 class="reg-message">Registration</h1>
+    <h3 class="log-message">Already have account? <a routerLink="/signin" class="login-link">Login</a></h3>
+  </header>
+  <section class="content">
+    <form (ngSubmit)="onSubmit(form)" #form="ngForm" class="registration-form"
+          autocomplete="off">
+      <div class="input">
+        <div class="absolute-block">
+          <div class="top-left-corner">
+
+          </div>
+        </div>
+        <div class="absolute-block">
+          <div class="bottom-left-corner">
+
+          </div>
+        </div>
+        <div class="absolute-block">
+          <div class="top-right-corner">
+
+          </div>
+        </div>
+        <div class="absolute-block">
+          <div class="bottom-right-corner">
+
+          </div>
+        </div>
+        <input type="email" placeholder="e-mail" ngModel name="email" class="email-input" required #email="ngModel"
+               email
+               autocomplete="off">
+      </div>
+      <div class="emailMsg"
+           *ngIf="email.invalid && (email.dirty || email.touched)">Incorrect email
+      </div>
+      <div class="input">
+        <div class="absolute-block">
+          <div class="top-left-corner">
+
+          </div>
+        </div>
+        <div class="absolute-block">
+          <div class="bottom-left-corner">
+
+          </div>
+        </div>
+        <div class="absolute-block">
+          <div class="top-right-corner">
+
+          </div>
+        </div>
+        <div class="absolute-block">
+          <div class="bottom-right-corner">
+
+          </div>
+        </div>
+        <input type="password" placeholder="password" ngModel name="password" class="password-input" #password="ngModel"
+               minlength="8" required
+               autocomplete="off">
+      </div>
+      <div class="emailMsg"
+           *ngIf="password.invalid && (password.dirty || password.touched)">
+        <div *ngIf="password.errors['required']">Password is required</div>
+        <div *ngIf="password.errors['minlength']">Password must be at least 8 in length</div>
+      </div>
+      <div class="input">
+        <div class="absolute-block">
+          <div class="top-left-corner">
+
+          </div>
+        </div>
+        <div class="absolute-block">
+          <div class="bottom-left-corner">
+
+          </div>
+        </div>
+        <div class="absolute-block">
+          <div class="top-right-corner">
+
+          </div>
+        </div>
+        <div class="absolute-block">
+          <div class="bottom-right-corner">
+
+          </div>
+        </div>
+        <input type="password" placeholder="confirm" ngModel name="confirmPassword" #confirmPassword="ngModel" required
+               compare="password"
+               autocomplete="off"
+               class="confirm-password-input">
+      </div>
+      <div class="emailMsg" *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)">
+        <div class="emailMsg" *ngIf="confirmPassword.errors['required']">Password confirm is required</div>
+        <div class="emailMsg" *ngIf="!confirmPassword.errors['required'] && confirmPassword.errors['compare']">Password
+          confirm do not match
+        </div>
+      </div>
+      <div class="emailMsg" *ngIf="isErr">{{errMsg}}</div>
+      <div class="button-block">
+
+        <div class="absolute-block">
+          <div class="top-left-corner">
+
+          </div>
+        </div>
+        <div class="absolute-block">
+          <div class="bottom-left-corner">
+
+          </div>
+        </div>
+        <div class="absolute-block">
+          <div class="top-right-corner">
+
+          </div>
+        </div>
+        <div class="absolute-block">
+          <div class="bottom-right-corner">
+          </div>
+        </div>
+        <button type="submit" class="submit-btn" [disabled]="form.invalid || form.pending">Enter</button>
+      </div>
+    </form>
+  </section>
+</div>

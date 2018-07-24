@@ -1,0 +1,85 @@
+<div class="registration-page">
+  <header class="header">
+    <h1 class="reg-message">Login</h1>
+    <h3 class="log-message">Don't have account yet? <a routerLink="/signup" class="login-link">Register</a></h3>
+  </header>
+  <section class="content">
+    <form (ngSubmit)="onSubmit(form)" #form="ngForm" class="registration-form">
+      <div class="input">
+        <div class="absolute-block">
+          <div class="top-left-corner">
+          </div>
+        </div>
+        <div class="absolute-block">
+          <div class="bottom-left-corner">
+
+          </div>
+        </div>
+        <div class="absolute-block">
+          <div class="top-right-corner">
+
+          </div>
+        </div>
+        <div class="absolute-block">
+          <div class="bottom-right-corner">
+
+          </div>
+        </div>
+        <input type="email" placeholder="e-mail" ngModel name="email" class="email-input" #email="ngModel" required email>
+      </div>
+      <div class="emailMsg"
+           *ngIf="email.invalid && (email.dirty || email.touched)">Incorrect email
+      </div>
+      <div class="input">
+        <div class="absolute-block">
+          <div class="top-left-corner">
+
+          </div>
+        </div>
+        <div class="absolute-block">
+          <div class="bottom-left-corner">
+
+          </div>
+        </div>
+        <div class="absolute-block">
+          <div class="top-right-corner">
+
+          </div>
+        </div>
+        <div class="absolute-block">
+          <div class="bottom-right-corner">
+
+          </div>
+        </div>
+        <input type="password" placeholder="password" ngModel name="password" #password="ngModel" class="password-input" required>
+      </div>
+      <div class="emailMsg" *ngIf="wrongData">Account not found.
+        Please, try again
+      </div>
+
+      <div class="button-block">
+
+        <!--<div class="absolute-block">-->
+          <!--<div class="top-left-corner">-->
+
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="absolute-block">-->
+          <!--<div class="bottom-left-corner">-->
+
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="absolute-block">-->
+          <!--<div class="top-right-corner">-->
+
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="absolute-block">-->
+          <!--<div class="bottom-right-corner">-->
+          <!--</div>-->
+        <!--</div>-->
+        <button type="submit" class="submit-btn">Enter</button>
+      </div>
+    </form>
+  </section>
+</div>

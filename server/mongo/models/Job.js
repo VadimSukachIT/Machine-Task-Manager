@@ -17,11 +17,13 @@ let JobSchema = new Schema({
   },
   description: {
     type: String,
-    maxlength: 255
+    maxlength: 255,
+    default: 'No description'
   },
   complexityLevel: {
     type: String,
-    enum: ['easy', 'normal', 'hard']
+    enum: ['easy', 'normal', 'hard'],
+    required: true
   }
 });
 

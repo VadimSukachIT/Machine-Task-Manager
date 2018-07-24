@@ -1,0 +1,26 @@
+<div class="a">
+  <div class="b">
+    <div class="android">
+      <div class="android-description">
+        <div class="android-avatar">
+          <img class="android-avatar-img" [src]="android.avatar">
+        </div>
+        <div class="android-name-and-buttons">
+          <div class="android-name-and-status">
+            <span class="android-name"> {{android.name}}</span>
+            <span class="android-status" [ngStyle]="{'background-color':android.status === true ? 'green' : 'red' }"></span>
+          </div>
+          <div class="android-buttons">
+            <button type="button" class="tag btn android-edit-btn"></button>
+            <button type="button" class="tag btn android-delete-btn" (click)="onDelete(android)"></button>
+            <span class="tag android-reliability">{{android.reliability}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="android-job-description">
+        <span class="job-name">{{android.assignedJob}}</span>
+        <span class="job-complexity">{{android.assignedJobComplexity}}</span>
+      </div>
+    </div>
+  </div>
+</div>
