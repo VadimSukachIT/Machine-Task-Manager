@@ -19,6 +19,9 @@ import {AndroidService} from "./services/android.service";
 import {JobsService} from "./services/jobs.service";
 import { AndroidCreateComponent } from './components/androids/android/android-create/android-create.component';
 import { HomeComponent } from './components/home/home.component';
+import { AndroidEditComponent } from './components/androids/android/android-edit/android-edit.component';
+import { TagInputComponent } from './components/tag-input/tag-input.component';
+import { TagComponent } from './components/tag-input/tag/tag.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,10 @@ import { HomeComponent } from './components/home/home.component';
     HeaderComponent,
     AndroidCreateComponent,
     HomeComponent,
+    AndroidEditComponent,
+    TagInputComponent,
+    TagComponent,
+
   ],
   imports: [
     HttpClientModule,

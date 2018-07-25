@@ -1,7 +1,4 @@
-let mongoose = require('mongoose');
-let Schema = mongoose.Schema;
-
-let AndroidSchema = new Schema({
+const AndroidSchema = {
   name: {
     type: String,
     required: true,
@@ -31,23 +28,18 @@ let AndroidSchema = new Schema({
     required: true
   },
   skills: {
-    type: [String]
+    type: [String],
+    required: true,
+    default: ''
   },
   assignedJob: {
-    type: String,
-    default: 'Without a  job'
+    type: {},
+    default: {
+      name: '',
+      complexityLevel: '',
+      id: ''
+    }
   },
-});
-
-AndroidSchema.statics.assignForJob = function (android, androidId, jobID) {
-  console.log(android);
-   android.update({
-     $set: {
-       "assignedJob": jobID
-     }
-   })
 };
 
-let AndroidModel = mongoose.model('Androids', AndroidSchema);
-
-module.exports = {AndroidModel};
+module.exports = AndroidSchema;

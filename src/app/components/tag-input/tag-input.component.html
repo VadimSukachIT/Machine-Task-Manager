@@ -1,0 +1,8 @@
+<div class="skill-input-wrapper">
+  <div class="input-area">
+    <input class="skills-input" [(ngModel)]="tagName" placeholder="Add skill..." #tagInput (keyup)="addTag($event)">
+  </div>
+  <div class="skills-area">
+    <app-tag *ngFor="let skill of skills" [newSkill]="skill" (deleteSkill)="deleteSkill()"></app-tag>
+  </div>
+</div>

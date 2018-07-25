@@ -4,8 +4,8 @@
       <div class="header-corner">
         <div class="header-corner2">
           <div class="links">
-            <div><a class="androids-link" routerLinkActive="active" routerLink="/androids">Androids</a></div>
-            <div class="create"><a class="create-link">Create</a></div>
+            <div><a class="androids-link" (click)="onDisableAndroidCreate()" >Androids</a></div>
+            <div class="create"><a class="create-link" (click)="onEnableAndroidCreate()">Create</a></div>
           </div>
         </div>
       </div>
@@ -14,8 +14,8 @@
       <div class="header-corner">
         <div class="header-corner2">
           <div class="links">
-            <div><a class="jobs-link" routerLinkActive="active" routerLink="/jobs">Jobs</a></div>
-            <div class="create"><a class="create-link">Create</a></div>
+            <div><a class="jobs-link" (click)="onDisableAndroidCreate()">Jobs</a></div>
+            <div class="create"><a class="create-link" (click)="onEnableJobCreate()">Create</a></div>
           </div>
         </div>
       </div>

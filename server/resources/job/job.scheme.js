@@ -1,7 +1,4 @@
-let mongoose = require('mongoose');
-let Schema = mongoose.Schema;
-
-let JobSchema = new Schema({
+const JobSchema = {
   name: {
     type: String,
     required: true,
@@ -22,11 +19,16 @@ let JobSchema = new Schema({
   },
   complexityLevel: {
     type: String,
-    enum: ['easy', 'normal', 'hard'],
+    enum: ['easy', 'normal', 'hard', 'impossible'],
     required: true
+  },
+  assignedAndroid: {
+    type: {},
+    default: {
+      name: '',
+      id: ''
+    }
   }
-});
+};
 
-let JobModel = mongoose.model('Jobs', JobSchema);
-
-module.exports = {JobModel};
+module.exports = JobSchema;

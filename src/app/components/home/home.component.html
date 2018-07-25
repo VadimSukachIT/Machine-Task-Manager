@@ -1,7 +1,16 @@
 <div class="main-page">
-  <app-header></app-header>
+  <app-header (enableAndroidCreate)="onEnableAndroidCreate()"
+              (disableAndroidCreate)="onDisableAndroidCreate()"
+              (enableJobCreate)="onEnableJobCreate()"
+              (disableJobCreate)="onDisableJobCreate()"></app-header>
   <div class="main-content">
-    <app-androids></app-androids>
-    <app-jobs></app-jobs>
+    <div class="main-androids-section">
+      <app-androids *ngIf="!createAndroidMode && !editAndroidMode" (onAndroidEdit)="onAndroidEdit($event)"></app-androids>
+      <app-android-create (cancelCreation)="onCancelCreation()" *ngIf="createAndroidMode && !editAndroidMode"></app-android-create>
+      <app-android-edit (cancelCreation)="onCancelCreation()" *ngIf="editAndroidMode && !createAndroidMode" [android]="editedAndroid"></app-android-edit>
+    </div>
+    <div class="main-jobs-section">
+      <app-jobs></app-jobs>
+    </div>
   </div>
 </div>

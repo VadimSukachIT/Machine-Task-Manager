@@ -1,0 +1,22 @@
+.skills-input {
+  border: none;
+  padding: 10px 8px;
+  width: 100%;
+  font-size: 18px;
+  box-sizing: border-box;
+  outline: none;
+
+}
+
+.skill-input-wrapper {
+  background: white;
+  min-height: 100px;
+}
+
+.skills-area {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0 5px 10px 5px;
+  box-sizing: border-box;
+}

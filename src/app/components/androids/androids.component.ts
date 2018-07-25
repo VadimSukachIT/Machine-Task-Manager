@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {AndroidService} from "../../services/android.service";
-import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-androids',
@@ -10,14 +9,22 @@ import {HttpClient} from "@angular/common/http";
 export class AndroidsComponent implements OnInit {
   androids;
 
-  constructor(private androidService: AndroidService, private httpClient: HttpClient) {
+  @Output() onAndroidEdit = new EventEmitter<{}>();
+
+  constructor(private androidService: AndroidService) {
+  }
+
+  onEnableEdit(android) {
+    this.onAndroidEdit.emit(android);
   }
 
   async ngOnInit() {
     await this.androidService.loadAndroids().then(androids => {
       this.androids = androids;
-    })
+
+    });
   }
+
 
   getAndroids() {
 
@@ -25,6 +32,7 @@ export class AndroidsComponent implements OnInit {
 
   async onDelete(id){
     this.androids = await this.androidService.deleteAndroid(id);
+    console.log(this.androids);
   }
 
 

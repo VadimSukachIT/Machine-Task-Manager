@@ -1,9 +1,6 @@
 <div class="androids-page">
   <div class="androids">
-    <app-android *ngFor="let android of androids" [android]="android" (onDeleteAndroid)="onDelete($event)" ></app-android>
-  </div>
-  <div class="androids-edit">
-    <router-outlet></router-outlet>
+    <app-android  *ngFor="let android of androids" [android]="android" (onEnableEditMode)="onEnableEdit($event)" (onDeleteAndroid)="onDelete($event)"></app-android>
   </div>
 </div>
 

@@ -1,18 +1,18 @@
 <div class="android-create">
-  <h1 class="android-create-header">Android creation</h1>
+  <h1 class="android-create-header">Edit Android</h1>
   <div class="android-create-form-wrapper">
     <div class="a">
       <div class="b">
         <form class="android-create-form" (ngSubmit)="onSubmit(form)" #form="ngForm" name="myForm">
           <label for="name" class="label name-label">Name</label>
-          <input type="text" id="name" class="name-input" name="name" ngModel required minlength="8" placeholder="At least 8 characters">
+          <input type="text" id="name" class="name-input" name="name" ngModel #name required minlength="8" placeholder="At least 8 characters">
           <label class="skills-label label">Skills</label>
           <app-tag-input></app-tag-input>
           <button type="submit" [ngStyle]="{cursor: disabled ? 'none' : 'pointer'}" [disabled]="form.invalid"
-                  class="submit-btn">Create
+                  class="submit-btn">Edit
           </button>
           <div class="cancel-wrapper">
-          <span class="cancel-creation" (click)="onCancelCreation()">Cancel</span>
+            <span class="cancel-creation" (click)="onCancelCreation()">Cancel</span>
           </div>
         </form>
       </div>

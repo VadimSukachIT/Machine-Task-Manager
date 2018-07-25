@@ -1,71 +1,80 @@
+.android-create {
+  .android-create-header {
+    text-align: center;
+    font-family: "Helvetica Neue", serif;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
 
-.create-android {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  .android-create-form-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
 
-  .wrapper {
-    width: 200px;
-    padding-top: 40px;
-
-    .form-header {
+    .android-create-form {
       display: flex;
       flex-direction: column;
-      text-align: center;
-
-      .header {
-        text-transform: uppercase;
-        font-family: "Helvetica Neue", serif;
-        font-size: 18px;
-        font-weight: bold;
-        letter-spacing: 1px;
-
-      }
-
-      .cancel {
-        padding: 10px 0 15px 0;
-
-
-        a {
-          font-family: "Helvetica Neue", serif;
-          text-transform: lowercase;
-          font-size: 14px;
-          color: red;
-          letter-spacing: 1px;
-
-          text-decoration: none;
-        }
-      }
-    }
-
-    .create-android-form {
-      display: flex;
-      flex-direction: column;
+      width: 300px;
+      padding: 10px;
 
       input, textarea {
-        margin-bottom: 20px;
-        padding: 5px;
-        outline: none;
-        border: none;
         font-family: "Helvetica Neue", serif;
-        font-size: 15px;
+        font-size: 18px;
+        border: none;
+        outline: none;
+      }
 
+      .label {
+        padding: 10px 0;
+      }
+
+      .name-label {
+        font-family: "Helvetica Neue", serif;
+        font-size: 20px;
+      }
+
+      .skills-label {
+        font-family: "Helvetica Neue", serif;
+        font-size: 20px;
+      }
+      .name-input {
+        padding: 10px;
+
+      }
+
+      .skills-label {
+        font-family: "Helvetica Neue", serif;
+        font-size: 20px;
       }
 
       .submit-btn {
-        outline: 0;
-        border: 0;
-        background: url("../../../../maxresdefault.png") no-repeat;
-        background-size: cover;
+        margin-top: 20px;
         cursor: pointer;
+        background-image: url("../../../../maxresdefault.png");
+        background-size: cover;
         color: white;
-        font-family: "Avenir", serif;
-        text-align: center;
+        padding: 8px;
+        font-family: "Helvetica Neue", serif;
+        font-size: 18px;
         text-transform: uppercase;
-        font-size: 13px;
-        letter-spacing: 0.5px;
+      }
 
+      .cancel-wrapper {
+        margin-top: 20px;
+        text-align: center;
 
+        .cancel-creation {
+          font-family: "Helvetica Neue", serif;
+          font-size: 16px;
+          cursor: pointer;
+
+          text-align: center;
+          text-transform: uppercase;
+
+          &:hover {
+            color: blue;
+          }
+        }
       }
     }
   }
@@ -82,10 +91,11 @@
   width: 10px;
   height: 10px;
   position: absolute;
-  top: -10px;
+  top: 0;
   left: -10px;
   border-top: 2px solid #000;
   border-left: 2px solid #000;
+  transition: width 1s, height 1s;
 }
 
 .a:after {
@@ -94,10 +104,11 @@
   width: 10px;
   height: 10px;
   position: absolute;
-  top: -10px;
-  right: -25px;
+  top: 0;
+  right: -10px;
   border-top: 2px solid #000;
   border-right: 2px solid #000;
+  transition: width 1s, height 1s;
 }
 
 .b:before {
@@ -106,22 +117,23 @@
   width: 10px;
   height: 10px;
   position: absolute;
-  bottom: 9px;
+  bottom: 0;
   left: -10px;
   border-bottom: 2px solid #000;
   border-left: 2px solid #000;
+  transition: width 1s, height 1s;
 }
 
 .b:after {
-
   display: block;
   content: "";
   width: 10px;
   height: 10px;
   position: absolute;
-  bottom: 9px;
-  right: -25px;
+  bottom: 0;
+  right: -10px;
   border-bottom: 2px solid #000;
   border-right: 2px solid #000;
+  transition: width 1s, height 1s;
 
 }

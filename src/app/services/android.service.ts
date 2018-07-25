@@ -9,8 +9,41 @@ import {reject} from "q";
 })
 export class AndroidService {
   androids;
+  editMode = false;
+  skills = [];
+  editedAndroid;
+
+  addSkill(skill) {
+    console.log(skill);
+    this.skills.push(skill)
+  }
+
+  deleteSkill(skill) {
+    const index = this.skills.indexOf(skill);
+    this.skills.splice(index, 1);
+  }
+
+  getSkills() {
+    return this.skills;
+  }
+
+  clearSkills() {
+    this.skills = [];
+  }
 
   constructor(private httpClient: HttpClient) {
+  }
+
+  enableEditMode() {
+    this.editMode = true;
+  }
+
+  disableEditMode() {
+    this.editMode = false;
+  }
+
+  getEditMode() {
+    return this.editMode;
   }
 
   getAndroid(index) {
@@ -19,12 +52,12 @@ export class AndroidService {
 
   addAndroid(android) {
     this.androids.push(android);
-    this.httpClient.post('http://localhost:3000/api/androids', android);
+    this.httpClient.post('http://localhost:3000/api/android', android);
   }
 
   loadAndroids() {
     return new Promise((resolve, reject) => {
-      this.httpClient.get('http://localhost:3000/api/androids').subscribe((response) => {
+      this.httpClient.get('http://localhost:3000/api/android/all').subscribe((response) => {
         this.androids = response['data'];
         resolve(response['data']);
       })
@@ -36,7 +69,9 @@ export class AndroidService {
   deleteAndroid(id) {
     return new Promise(async (resolve, reject) => {
       this.androids = this.removeByKey(this.androids, {key: '_id', value: id});
-      await this.httpClient.delete(`http://localhost:3000/api/androids/android/${id}`).subscribe((response) => {
+      await this.httpClient.delete(`http://localhost:3000/api/android/${id}`).subscribe((response) => {
+        console.log(this.androids)
+        resolve(this.androids);
       });
     });
   }

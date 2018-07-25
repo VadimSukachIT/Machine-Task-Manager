@@ -1,5 +1,6 @@
 <div class="a">
   <div class="b">
+
     <div class="android">
       <div class="android-description">
         <div class="android-avatar">
@@ -8,18 +9,20 @@
         <div class="android-name-and-buttons">
           <div class="android-name-and-status">
             <span class="android-name"> {{android.name}}</span>
-            <span class="android-status" [ngStyle]="{'background-color':android.status === true ? 'green' : 'red' }"></span>
+            <span class="android-status"
+                  [ngStyle]="{'background-color':android.status === true ? 'green' : 'red' }"></span>
           </div>
           <div class="android-buttons">
-            <button type="button" class="tag btn android-edit-btn"></button>
+            <button type="button" class="tag btn android-edit-btn" (click)="onEnableEdit()"></button>
             <button type="button" class="tag btn android-delete-btn" (click)="onDelete(android)"></button>
             <span class="tag android-reliability">{{android.reliability}}</span>
           </div>
         </div>
       </div>
       <div class="android-job-description">
-        <span class="job-name">{{android.assignedJob}}</span>
-        <span class="job-complexity">{{android.assignedJobComplexity}}</span>
+        <span class="job-name" *ngIf="android.assignedJob.name !== ''">{{android.assignedJob.name}}</span>
+        <span class="job-name-assign" *ngIf="android.assignedJob.name === ''">Assign to Job</span>
+        <span class="job-complexity" *ngIf="android.assignedJob.name !== ''">{{android.assignedJob.complexityLevel}}</span>
       </div>
     </div>
   </div>

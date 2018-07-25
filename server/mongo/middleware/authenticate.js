@@ -1,21 +1,19 @@
-let {userModel} = require('../models/User');
+const userController = require('resources/user/user.controller');
 
-let authenticate = (req, res, next) => {
+let authenticate = async (req, res, next) => {
   let token = req.header('x-auth');
 
-  userModel.findByToken(token).then(user => {
-    if (!user) {
-      return Promise.reject();
-    }
+  const user = await userController.findByToken(token);
+  if (!user) {
+    req.status(401).send();
+    return;
+  }
 
-    req.user = user;
-    req.token = token;
-    next();
-  }).catch((err) => {
-    res.status(401).send();
-  })
+  req.user = user;
+  req.token = token;
+  next();
 };
 
 module.exports = {
-  authenticate
+  authenticate,
 };

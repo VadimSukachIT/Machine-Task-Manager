@@ -10,13 +10,17 @@ export class AndroidComponent implements OnInit {
  @Input() android: {
     name: string,
     status: boolean,
-    assignedJob: string,
+    assignedJob: {
+      name: string,
+      complexityLevel: string
+    }
     assignedJobComplexity: string,
     avatar: string,
     reliability: number
   };
 
   @Output() onDeleteAndroid = new EventEmitter<string>();
+  @Output() onEnableEditMode = new EventEmitter<{}>();
 
 
 
@@ -24,6 +28,10 @@ export class AndroidComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  onEnableEdit() {
+    this.onEnableEditMode.emit(this.android);
   }
 
   onDelete(android) {

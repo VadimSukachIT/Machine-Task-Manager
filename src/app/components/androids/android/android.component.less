@@ -3,27 +3,27 @@
   margin: 20px;
 
 
-  &:hover {
-
-    .b:before {
-      width: 100%;
-      height: 50px;
-    }
-
-    .b:after {
-      width: 100%;
-      height: 50px;
-    }
-
-    &:before {
-      width: 100%;
-      height: 50px;
-    }
-    &:after {
-      width: 100%;
-      height: 50px;
-    }
-  }
+  //&:hover {
+  //
+  //  .b:before {
+  //    width: 100%;
+  //    //height: 50px;
+  //  }
+  //
+  //  .b:after {
+  //    width: 100%;
+  //    //height: 50px;
+  //  }
+  //
+  //  &:before {
+  //    width: 100%;
+  //    //height: 50px;
+  //  }
+  //  &:after {
+  //    width: 100%;
+  //    //height: 50px;
+  //  }
+  //}
 }
 
 .a:before {
@@ -86,105 +86,118 @@
   box-sizing: border-box;
   height: 90px;
 
-  .android-description {
-    display: flex;
 
-    .android-avatar {
-      width: 50px;
-      height: 50px;
 
-      .android-avatar-img {
+
+    .android-description {
+      display: flex;
+
+      .android-avatar {
         width: 50px;
-        height: 50px;
+        //height: 50px;
+
+        .android-avatar-img {
+          width: 50px;
+          //height: 50px;
+
+        }
+
       }
 
-    }
-
-    .android-name-and-buttons {
-      display: flex;
-      padding-left: 10px;
-      flex-direction: column;
-      justify-content: space-between;
-
-      .android-name-and-status {
+      .android-name-and-buttons {
         display: flex;
-        align-items: center;
+        padding-left: 10px;
+        flex-direction: column;
+        justify-content: space-between;
 
-        .android-name {
-          text-transform: uppercase;
-          font-family: "Helvetica Neue", serif;
-          letter-spacing: 1px;
-          margin-left: 10px;
+        .android-name-and-status {
+          display: flex;
+          align-items: center;
+
+          .android-name {
+            text-transform: uppercase;
+            font-family: "Helvetica Neue", serif;
+            letter-spacing: 1px;
+            margin-left: 10px;
+          }
+
+          .android-status {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: green;
+            display: inline-block;
+            margin-left: 10px;
+          }
         }
 
-        .android-status {
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background: green;
-          display: inline-block;
-          margin-left: 10px;
+        .tag {
+          margin: 0 10px;
         }
+
       }
 
-      .tag {
-        margin: 0 10px;
+      .android-buttons {
+        display: flex;
+        justify-content: space-between;
+
+        .btn {
+          outline: none;
+          border: none;
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+        }
+
+        .android-edit-btn {
+          background: url("../../../imgs/edit.svg") no-repeat;
+          background-size: cover;
+        }
+
+        .android-delete-btn {
+          background: url("../../../imgs/trash.svg") no-repeat;
+          background-size: cover;
+        }
+
+      }
+
+      .android-reliability {
+        font-family: "Helvetica Neue", serif;
+        font-size: 18px;
       }
 
     }
 
-    .android-buttons {
+    .android-job-description {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
 
-      .btn {
-        outline: none;
-        border: none;
-        width: 20px;
-        height: 20px;
-        cursor: pointer;
+      .job-name, .job-name-assign {
+        font-family: "Helvetica Neue", serif;
+        font-size: 17px;
+        letter-spacing: 1px;
+        text-transform: lowercase;
+
+        &::first-letter {
+          text-transform: uppercase;
+        }
       }
 
-      .android-edit-btn {
-        background: url("../../../imgs/edit.svg") no-repeat;
-        background-size: cover;
+      .job-name-assign {
+        color: blue;
+        &:hover {
+          cursor: pointer;
+          //border-bottom: 2px solid black;
+        }
       }
 
-      .android-delete-btn {
-        background: url("../../../imgs/trash.svg") no-repeat;
-        background-size: cover;
-      }
-
-    }
-
-    .android-reliability {
-      font-family: "Helvetica Neue", serif;
-      font-size: 18px;
-    }
-
-  }
-
-  .android-job-description {
-    display: flex;
-    flex-direction: column;
-
-    .job-name {
-      font-family: "Helvetica Neue", serif;
-      font-size: 17px;
-      letter-spacing: 1px;
-      text-transform: lowercase;
-
-      &::first-letter {
-        text-transform: uppercase;
+      .job-complexity {
+        font-family: "Helvetica Neue", serif;
+        font-size: 15px;
+        color: rgb(101, 101, 101);
+        letter-spacing: 2px;
+        text-transform: lowercase;
       }
     }
 
-    .job-complexity {
-      font-family: "Helvetica Neue", serif;
-      font-size: 15px;
-      color: rgb(101, 101, 101);
-      letter-spacing: 2px;
-      text-transform: lowercase;
-    }
-  }
 }

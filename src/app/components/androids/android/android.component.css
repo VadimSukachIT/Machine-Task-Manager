@@ -2,22 +2,6 @@
   position: relative;
   margin: 20px;
 }
-.a:hover .b:before {
-  width: 100%;
-  height: 50px;
-}
-.a:hover .b:after {
-  width: 100%;
-  height: 50px;
-}
-.a:hover:before {
-  width: 100%;
-  height: 50px;
-}
-.a:hover:after {
-  width: 100%;
-  height: 50px;
-}
 .a:before {
   display: block;
   content: "";
@@ -78,11 +62,9 @@
 }
 .android .android-description .android-avatar {
   width: 50px;
-  height: 50px;
 }
 .android .android-description .android-avatar .android-avatar-img {
   width: 50px;
-  height: 50px;
 }
 .android .android-description .android-name-and-buttons {
   display: flex;
@@ -138,14 +120,22 @@
   display: flex;
   flex-direction: column;
 }
-.android .android-job-description .job-name {
+.android .android-job-description .job-name,
+.android .android-job-description .job-name-assign {
   font-family: "Helvetica Neue", serif;
   font-size: 17px;
   letter-spacing: 1px;
   text-transform: lowercase;
 }
-.android .android-job-description .job-name::first-letter {
+.android .android-job-description .job-name::first-letter,
+.android .android-job-description .job-name-assign::first-letter {
   text-transform: uppercase;
+}
+.android .android-job-description .job-name-assign {
+  color: blue;
+}
+.android .android-job-description .job-name-assign:hover {
+  cursor: pointer;
 }
 .android .android-job-description .job-complexity {
   font-family: "Helvetica Neue", serif;

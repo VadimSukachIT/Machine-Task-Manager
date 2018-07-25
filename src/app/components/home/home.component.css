@@ -1,3 +1,10 @@
-.main-page {
-  height: 100vh;
+.main-content {
+  height: 100%;
+  display: flex;
+}
+.main-content .main-androids-section {
+  width: 50%;
+}
+.main-content .main-jobs-section {
+  width: 50%;
 }

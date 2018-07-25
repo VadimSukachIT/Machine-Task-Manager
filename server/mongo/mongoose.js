@@ -1,6 +1,7 @@
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
+const { mongo } = require('config')
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/androids');
+mongoose.connect(mongo);
 
-module.exports = {mongoose};
+module.exports = mongoose;
