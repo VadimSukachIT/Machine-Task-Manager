@@ -4,7 +4,6 @@ const androidService = require('./android.service');
 
 exports.getAll = async (req, res) => {
   const androids = await androidService.find({});
-  console.log(androids);
 
   res.json({
     status: 200,
@@ -35,7 +34,6 @@ exports.assignTask = async (req, res) => {
 
 exports.delete = async (req, res) => {
   const {id} = req.params;
-  console.log(id);
 
   const android = await androidService
     .findOneAndDelete({_id: new ObjectID(id)});

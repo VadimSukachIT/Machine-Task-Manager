@@ -38,7 +38,6 @@ exports.create = async (req, res) => {
 
 exports.update = async (req, res) => {
   const job = req.body;
-  console.log(job);
 
   const queryBody = {name: job.name, description: job.description, complexityLevel: job.complexityLevel};
   const result = await jobService

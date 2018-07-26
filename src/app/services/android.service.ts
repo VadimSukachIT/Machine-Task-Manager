@@ -22,7 +22,6 @@ export class AndroidService {
   deleteSkill(skill) {
     const index = this.skills.indexOf(skill);
     this.skills.splice(index, 1);
-    console.log(this.skills);
   }
 
   getSkills() {
@@ -34,7 +33,7 @@ export class AndroidService {
   }
 
   constructor(private httpClient: HttpClient, private jobService: JobsService) {
-    
+
   }
 
   enableEditMode() {

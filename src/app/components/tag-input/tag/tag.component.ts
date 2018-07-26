@@ -17,7 +17,6 @@ export class TagComponent implements OnInit {
   }
 
   onDelete() {
-    console.log(this.skill);
     this.deleteSkill.emit(this.skill);
   }
 

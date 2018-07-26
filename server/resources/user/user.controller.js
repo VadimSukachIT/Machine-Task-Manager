@@ -25,7 +25,6 @@ exports.getAll = async (req, res) => {
 
 exports.login = async (req, res) => {
   const { email, password } = req.body;
-  console.log(email, password);
   const user = await userService.findOne({ email });
 
   if (!user) {
@@ -40,8 +39,9 @@ exports.login = async (req, res) => {
   let token = generateAuthToken(user);
 
   await userService.update({ _id: user._id }, {
-    ...user,
-    tokens: user.tokens.concat({ access, token }),
+    $set: {
+      tokens: user.tokens.concat({ access, token }),
+    },
   });
 
   res.header('x-auth', token).send({ user, token });
@@ -52,7 +52,6 @@ exports.getCurrent = (req, res) => {
 };
 
 exports.deleteToken = async (req, res) => {
-  console.log(req.url)
   const result = await req.user.removeToken(req.token);
   if (!result) {
     res.status(400).send();
