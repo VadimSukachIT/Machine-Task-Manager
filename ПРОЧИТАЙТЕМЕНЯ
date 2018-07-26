@@ -4,3 +4,6 @@ sudo apt install mongodb-server
 sudo service mongodb start
 Разворачивал по-другому, но это вроде рабочий вариант
 2. Сервер писал на node.js 
+NODE_PATH=./server node server
+3. Фронт на ангуляре 
+ng serve
