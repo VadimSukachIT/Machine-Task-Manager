@@ -13,15 +13,21 @@ exports.getAll = async (req, res) => {
 };
 
 exports.assignTask = async (req, res) => {
-  const {androidId, jobId} = req.body;
+  const {androidId, jobId} = req.params;
+
 
   const android = await androidService
     .findOne({_id: new ObjectID(androidId)});
-  const job  = jobSer
+
   const queryBody = {assignedJob: jobId};
-  if (android.reliability > 10) {
+
+  android.reliability--;
+  queryBody.reliability = android.reliability;
+
+  if (android.reliability === 0) {
     queryBody.status = false;
   }
+
   const result = await androidService
     .update({_id: new ObjectID(androidId)}, {$set: queryBody});
   res.send(result);

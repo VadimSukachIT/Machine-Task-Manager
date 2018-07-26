@@ -25,7 +25,9 @@ export class HomeComponent implements OnInit {
     });
   }
 
-
+  cancelAssign() {
+    this.assignMode = false;
+  }
 
   ngOnInit() {
   }

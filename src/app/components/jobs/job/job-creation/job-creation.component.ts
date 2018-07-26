@@ -20,9 +20,6 @@ export class JobCreationComponent implements OnInit {
   }
 
   async onSubmit(form) {
-    console.log(form.value.name);
-    console.log(form.value.description);
-    console.log(form.value.complexityLevel);
     if (form.valid) {
       this.job = {
         name: form.value.name,

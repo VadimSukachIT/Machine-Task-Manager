@@ -17,9 +17,7 @@ export class JobsComponent implements OnInit, OnDestroy {
 
   constructor(private jobService: JobsService, private assignService: AssignService) {
     this.subscription = this.assignService.getAssign().subscribe(async ({android, job}) => {
-      job.assignedAndroids.push(android);
-      this.jobs = await this.jobService.updateJob(job);
-      console.log(this.jobs);
+      this.jobs = this.jobs;
     });
   }
 
@@ -41,7 +39,6 @@ export class JobsComponent implements OnInit, OnDestroy {
 
   async onDelete(id) {
     this.jobs = await this.jobService.deleteJob(id);
-    console.log(this.jobs);
   }
 
 }

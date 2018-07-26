@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {promise} from "selenium-webdriver";
 import {error} from "util";
 import {reject} from "q";
+import {JobsService} from "./jobs.service";
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,8 @@ export class AndroidService {
     this.skills = [];
   }
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private jobService: JobsService) {
+    
   }
 
   enableEditMode() {
@@ -98,17 +100,39 @@ export class AndroidService {
     array.some(function (item, index) {
       return (array[index][params.key] === params.value) ? !!(array.splice(index, 1, newAndroid)) : false;
     });
-console.log(array);
     return array;
   }
 
   updateAndroid(android) {
-    const { id } = android;
+    const {_id} = android;
     return new Promise(async (resolve, reject) => {
-      this.androids = this.updateByKey(this.androids, {key: '_id', value: id}, android);
+      this.androids = this.updateByKey(this.androids, {key: '_id', value: _id}, android);
       await this.httpClient.put(`http://localhost:3000/api/android`, android).subscribe((response) => {
         resolve(this.androids);
       });
     });
+  }
+
+  assignAndroid(android, job) {
+    return new Promise(async (resolve, reject) => {
+      android.assignedJob = job._id;
+      this.androids = this.updateByKey(this.androids, {key: '_id', value: android._id}, android);
+      await this.httpClient.put(`http://localhost:3000/api/android/${android._id}/job/${job._id}`, android).subscribe((response) => {
+        resolve(this.androids);
+      });
+    })
+  }
+
+  getAndroidById(job) {
+    let androids = [];
+
+    this.androids.forEach(android => {
+        if (android.assignedJob === job._id) {
+          androids.push(android);
+        }
+      }
+    );
+
+    return androids;
   }
 }

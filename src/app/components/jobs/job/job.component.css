@@ -44,6 +44,7 @@
 .job .assigned-androids-block {
   font-family: "Helvetica Neue", serif;
   font-size: 16px;
+  line-height: 20px;
 }
 .job .assigned-androids-block .assigned-androids {
   font-size: 14px;

@@ -17,8 +17,6 @@
             <span class="reliability">Reliability: {{android.reliability}}</span>
           </div>
           <div class="android-job-info">
-            <div class="job-name" *ngIf="android.assignedJob.name !== ''">Job: {{android.assignedJob.name}}send flowers</div>
-            <div class="job-name" *ngIf="android.assignedJob.name === ''">Job: none</div>
             <span class="job-name-assign" *ngIf="android.status" (click)="startAssign()">Assign to Job</span>
           </div>
           <div class="android-buttons">

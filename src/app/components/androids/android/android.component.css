@@ -125,7 +125,6 @@
   background-size: cover;
   margin-left: 15px;
 }
-
 .skills {
   font-size: 85%;
   padding: 0.5em 0.75em;
@@ -138,7 +137,6 @@
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
 .skill-delete {
   padding-left: 10px;
 }

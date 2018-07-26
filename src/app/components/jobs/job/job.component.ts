@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AssignService} from "../../../services/assign.service";
+import {AndroidService} from "../../../services/android.service";
 
 @Component({
   selector: 'app-job',
@@ -11,12 +12,12 @@ export class JobComponent implements OnInit {
   @Output() onDeleteJob = new EventEmitter<string>();
   @Input() job;
 
+  constructor(private assignService: AssignService, private androidService: AndroidService) {
 
-
-  constructor(private assignService: AssignService) {
   }
 
   ngOnInit() {
+    this.job.assignedAndroids = this.androidService.getAndroidById(this.job);
   }
 
   onEnableJobEdit() {

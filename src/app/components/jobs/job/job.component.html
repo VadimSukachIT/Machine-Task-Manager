@@ -12,7 +12,7 @@
         <span class="description" *ngIf="!job.description">No description</span>
       </div>
       <div class="assigned-androids-block">
-        <span class="assignedAndroids" *ngIf="job.assignedAndroids.length !== 0">Assigned androids: <span
+        <span class="assignedAndroids" *ngIf="job.assignedAndroids.length > 0">Assigned androids: <span
           *ngFor="let android of job.assignedAndroids" class="assigned-androids"><{{android.name}}>     </span></span>
         <span class="no-assigned-androids" *ngIf="job.assignedAndroids.length === 0">No assigned androids yet</span>
       </div>

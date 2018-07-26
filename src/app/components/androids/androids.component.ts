@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core'
 import {AndroidService} from "../../services/android.service";
 import {Subscription} from "rxjs/internal/Subscription";
 import {AssignService} from "../../services/assign.service";
+import {JobsService} from "../../services/jobs.service";
 
 @Component({
   selector: 'app-androids',
@@ -14,15 +15,19 @@ export class AndroidsComponent implements OnInit, OnDestroy {
   @Output() onAndroidEdit = new EventEmitter<{}>();
   subscription: Subscription;
 
-  constructor(private assignService: AssignService, private androidService: AndroidService) {
+  constructor(private assignService: AssignService, private androidService: AndroidService, private jobService: JobsService) {
     this.subscription = this.assignService.getAssign().subscribe(async ({android, job}) => {
-      android.assignedJob = job;
-      this.updateStatus(android);
-      this.androids = await androidService.updateAndroid(android);
+      if (android.assignedJob === job._id){
+        this.assignService.changeMode(false);
+        return
+      }
+      this.updateStatus(android, job._id);
+      await androidService.assignAndroid(android, job);
+      this.assignService.changeMode(false);
     });
   }
 
-  private updateStatus(android: any) {
+  private updateStatus(android: any, jobId) {
     if (android.reliability > 1) {
       android.reliability = --android.reliability;
     } else if (android.reliability === 1) {
@@ -49,7 +54,6 @@ export class AndroidsComponent implements OnInit, OnDestroy {
 
   async onDelete(id) {
     this.androids = await this.androidService.deleteAndroid(id);
-    console.log(this.androids);
   }
 
 

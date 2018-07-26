@@ -15,7 +15,7 @@ router.put('/user/current/removeToken', authenticate, userController.deleteToken
 router.post('/android', androidController.create);
 router.put('/android', androidController.update);
 router.get('/android/all', androidController.getAll);
-router.put('/android/:id/assignTask', androidController.assignTask);
+router.put('/android/:androidId/job/:jobId', androidController.assignTask);
 router.delete('/android/:id', androidController.delete);
 
 router.post('/job', jobController.create);
