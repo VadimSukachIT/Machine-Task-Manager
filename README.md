@@ -28,13 +28,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## ПО ЗАПУСКУ
 
-
-На всякий случай напишу, что юзал, и как корректно запустить
+На всякий случай напишу, что юзал, и как запускал
 1. Использовал mongodb
-sudo apt install mongodb-server
-sudo service mongodb start
+  'sudo apt install mongodb-server'       
+  'sudo service mongodb start'
 Разворачивал по-другому, но это вроде рабочий вариант
 2. Сервер писал на node.js 
-NODE_PATH=./server node server
+  'NODE_PATH=./server node server'
 3. Фронт на ангуляре 
-ng serve
+  ng serve
