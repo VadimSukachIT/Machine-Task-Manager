@@ -1,5 +1,5 @@
 const _ = require('lodash');
-const { ObjectID } = require('mongodb');
+const {ObjectID} = require('mongodb');
 const androidService = require('./android.service');
 
 exports.getAll = async (req, res) => {
@@ -13,25 +13,26 @@ exports.getAll = async (req, res) => {
 };
 
 exports.assignTask = async (req, res) => {
-  const { androidId, jobId } = req.body;
+  const {androidId, jobId} = req.body;
 
   const android = await androidService
-    .findOne({ _id: new ObjectID(androidId) });
-  const queryBody = { assignedJob: jobId };
+    .findOne({_id: new ObjectID(androidId)});
+  const job  = jobSer
+  const queryBody = {assignedJob: jobId};
   if (android.reliability > 10) {
     queryBody.status = false;
   }
   const result = await androidService
-    .update({ _id: new ObjectID(androidId) }, { $set: queryBody });
+    .update({_id: new ObjectID(androidId)}, {$set: queryBody});
   res.send(result);
 };
 
 exports.delete = async (req, res) => {
-  const { id } = req.params;
+  const {id} = req.params;
   console.log(id);
 
   const android = await androidService
-    .findOneAndDelete({ _id: new ObjectID(id) });
+    .findOneAndDelete({_id: new ObjectID(id)});
   if (!android) {
     res.status(400).send();
     return;
@@ -40,9 +41,7 @@ exports.delete = async (req, res) => {
 };
 
 exports.create = async (req, res) => {
-  console.log(req.body);
   const body = _.pick(req.body, ['name', 'avatarURL', 'skills', 'assignedJob']);
-  console.log('BOdy:', body);
 
   const android = await androidService
     .create(body);
@@ -51,4 +50,13 @@ exports.create = async (req, res) => {
     return;
   }
   res.send(android);
+};
+
+exports.update = async (req, res) => {
+  const android = req.body;
+
+  const queryBody = {name: android.name, skills: android.skills};
+  const result = await androidService
+    .update({_id: new ObjectID(android._id)}, {$set: queryBody});
+  res.send(result);
 };

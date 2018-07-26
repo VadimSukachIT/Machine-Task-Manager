@@ -14,13 +14,14 @@ export class AndroidService {
   editedAndroid;
 
   addSkill(skill) {
-    console.log(skill);
-    this.skills.push(skill)
+
+    this.skills.push(skill);
   }
 
   deleteSkill(skill) {
     const index = this.skills.indexOf(skill);
     this.skills.splice(index, 1);
+    console.log(this.skills);
   }
 
   getSkills() {
@@ -52,7 +53,6 @@ export class AndroidService {
 
   addAndroid(android) {
     this.androids.push(android);
-    this.httpClient.post('http://localhost:3000/api/android', android);
   }
 
   loadAndroids() {
@@ -70,7 +70,6 @@ export class AndroidService {
     return new Promise(async (resolve, reject) => {
       this.androids = this.removeByKey(this.androids, {key: '_id', value: id});
       await this.httpClient.delete(`http://localhost:3000/api/android/${id}`).subscribe((response) => {
-        console.log(this.androids)
         resolve(this.androids);
       });
     });
@@ -86,13 +85,30 @@ export class AndroidService {
 
   createAndroid(android) {
     this.androids.push(android);
-
     return new Promise((resolve, reject) => {
-      this.httpClient.post('http://localhost:3000/api/androids', android).subscribe((response) => {
+      this.httpClient.post('http://localhost:3000/api/android', android).subscribe((response) => {
         resolve(response['data']);
       })
     }).catch(error => {
       console.log(error);
     })
+  }
+
+  updateByKey(array, params, newAndroid) {
+    array.some(function (item, index) {
+      return (array[index][params.key] === params.value) ? !!(array.splice(index, 1, newAndroid)) : false;
+    });
+console.log(array);
+    return array;
+  }
+
+  updateAndroid(android) {
+    const { id } = android;
+    return new Promise(async (resolve, reject) => {
+      this.androids = this.updateByKey(this.androids, {key: '_id', value: id}, android);
+      await this.httpClient.put(`http://localhost:3000/api/android`, android).subscribe((response) => {
+        resolve(this.androids);
+      });
+    });
   }
 }

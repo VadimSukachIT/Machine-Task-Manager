@@ -22,12 +22,9 @@ const JobSchema = {
     enum: ['easy', 'normal', 'hard', 'impossible'],
     required: true
   },
-  assignedAndroid: {
-    type: {},
-    default: {
-      name: '',
-      id: ''
-    }
+  assignedAndroids: {
+    type: [{}],
+    default: []
   }
 };
 

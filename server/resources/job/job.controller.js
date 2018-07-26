@@ -35,3 +35,13 @@ exports.create = async (req, res) => {
   }
   res.send(job);
 };
+
+exports.update = async (req, res) => {
+  const job = req.body;
+  console.log(job);
+
+  const queryBody = {name: job.name, description: job.description, complexityLevel: job.complexityLevel};
+  const result = await jobService
+    .update({_id: new ObjectID(job._id)}, {$set: queryBody});
+  res.send(result);
+};

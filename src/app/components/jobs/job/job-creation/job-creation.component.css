@@ -1,70 +1,87 @@
-.android-create .android-create-header {
+.job-create .job-create-header {
   text-align: center;
   font-family: "Helvetica Neue", serif;
   text-transform: uppercase;
   font-weight: 300;
 }
-.android-create .android-create-form-wrapper {
+.job-create .job-create-form-wrapper {
   align-items: center;
   display: flex;
   justify-content: center;
 }
-.android-create .android-create-form-wrapper .android-create-form {
+.job-create .job-create-form-wrapper .job-create-form {
   display: flex;
   flex-direction: column;
   width: 300px;
   padding: 10px;
 }
-.android-create .android-create-form-wrapper .android-create-form input,
-.android-create .android-create-form-wrapper .android-create-form textarea {
+.job-create .job-create-form-wrapper .job-create-form .complexity-label {
+  font-size: 20px;
+}
+.job-create .job-create-form-wrapper .job-create-form .complexity-select {
+  padding: 10px;
+  width: 100%;
+  height: 25px;
+  outline: none;
+  border: none;
+  font-size: 15px;
+}
+.job-create .job-create-form-wrapper .job-create-form .job-description-area {
+  resize: none;
+  min-height: 65px;
+  padding: 10px;
+  border-radius: 10px;
+}
+.job-create .job-create-form-wrapper .job-create-form input,
+.job-create .job-create-form-wrapper .job-create-form textarea {
   font-family: "Helvetica Neue", serif;
   font-size: 18px;
   border: none;
   outline: none;
-  border-radius: 10px;
 }
-.android-create .android-create-form-wrapper .android-create-form .label {
+.job-create .job-create-form-wrapper .job-create-form .label {
   padding: 10px 0;
 }
-.android-create .android-create-form-wrapper .android-create-form .name-label {
+.job-create .job-create-form-wrapper .job-create-form .name-label {
   font-family: "Helvetica Neue", serif;
   font-size: 20px;
 }
-.android-create .android-create-form-wrapper .android-create-form .skills-label {
+.job-create .job-create-form-wrapper .job-create-form .description-label {
   font-family: "Helvetica Neue", serif;
   font-size: 20px;
 }
-.android-create .android-create-form-wrapper .android-create-form .name-input {
+.job-create .job-create-form-wrapper .job-create-form .name-input {
   padding: 10px;
+  border-radius: 10px;
 }
-.android-create .android-create-form-wrapper .android-create-form .skills-label {
+.job-create .job-create-form-wrapper .job-create-form .description-label {
   font-family: "Helvetica Neue", serif;
   font-size: 20px;
 }
-.android-create .android-create-form-wrapper .android-create-form .submit-btn {
+.job-create .job-create-form-wrapper .job-create-form .submit-btn {
   margin-top: 20px;
   cursor: pointer;
   background-image: url("../../../../maxresdefault.png");
   background-size: cover;
   color: white;
   padding: 8px;
-  font-family: "Helvetica Neue", serif;
   border-radius: 10px;
+  font-family: "Helvetica Neue", serif;
   font-size: 18px;
   text-transform: uppercase;
 }
-.android-create .android-create-form-wrapper .android-create-form .cancel-wrapper {
+.job-create .job-create-form-wrapper .job-create-form .cancel-wrapper {
   margin-top: 20px;
   text-align: center;
 }
-.android-create .android-create-form-wrapper .android-create-form .cancel-wrapper .cancel-creation {
+.job-create .job-create-form-wrapper .job-create-form .cancel-wrapper .cancel-creation {
   font-family: "Helvetica Neue", serif;
   font-size: 16px;
   cursor: pointer;
   text-align: center;
   text-transform: uppercase;
 }
-.android-create .android-create-form-wrapper .android-create-form .cancel-wrapper .cancel-creation:hover {
+.job-create .job-create-form-wrapper .job-create-form .cancel-wrapper .cancel-creation:hover {
   color: blue;
 }
 .a {

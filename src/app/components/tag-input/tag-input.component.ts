@@ -15,6 +15,7 @@ export class TagInputComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.skills = this.androidService.getSkills();
   }
 
   addTag(e) {
@@ -24,14 +25,12 @@ export class TagInputComponent implements OnInit {
     if (keyCode == '13' && skill !== '') {
       this.skills.push(skill);
       this.input.nativeElement.value = '';
-      this.androidService.addSkill(skill);
     }
-
   }
 
   deleteSkill(skill) {
     const index = this.skills.indexOf(skill);
-    this.skills.splice(index, 1);
+    this.skills.splice(index, 0);
     this.androidService.deleteSkill(skill);
   }
 }

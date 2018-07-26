@@ -13,11 +13,13 @@ router.get('/users/current', authenticate, userController.getCurrent);
 router.put('/user/current/removeToken', authenticate, userController.deleteToken);
 
 router.post('/android', androidController.create);
+router.put('/android', androidController.update);
 router.get('/android/all', androidController.getAll);
 router.put('/android/:id/assignTask', androidController.assignTask);
 router.delete('/android/:id', androidController.delete);
 
 router.post('/job', jobController.create);
+router.put('/job', jobController.update);
 router.get('/job', jobController.getAll);
 router.delete('/job/:id', jobController.delete);
 

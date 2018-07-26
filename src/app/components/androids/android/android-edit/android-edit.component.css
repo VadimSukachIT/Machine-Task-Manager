@@ -50,6 +50,7 @@
   font-family: "Helvetica Neue", serif;
   font-size: 18px;
   text-transform: uppercase;
+  border-radius: 10px;
 }
 .android-create .android-create-form-wrapper .android-create-form .cancel-wrapper {
   margin-top: 20px;

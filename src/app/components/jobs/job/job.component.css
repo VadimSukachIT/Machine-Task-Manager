@@ -1,0 +1,105 @@
+.job {
+  padding: 8px 5px;
+}
+.job .job-header {
+  display: flex;
+}
+.job .job-header .job-name {
+  font-family: "Helvetica Neue", serif;
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+.job .job-header .job-complexity {
+  font-family: "Helvetica Neue", serif;
+  font-size: 15px;
+  color: #808080;
+  letter-spacing: 1px;
+  padding-left: 15px;
+  display: flex;
+}
+.job .job-header .job-edit {
+  background: url("../../../imgs/edit.svg") no-repeat;
+  outline: none;
+  border: none;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  margin-left: 30px;
+}
+.job .job-header .job-delete {
+  background: url("../../../imgs/trash.svg") no-repeat;
+  outline: none;
+  border: none;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  margin-left: 12px;
+}
+.job .job-description {
+  padding: 5px 0;
+  font-family: "Helvetica Neue", serif;
+  font-size: 16px;
+}
+.job .assigned-androids-block {
+  font-family: "Helvetica Neue", serif;
+  font-size: 16px;
+}
+.job .assigned-androids-block .assigned-androids {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.a {
+  position: relative;
+  margin: 20px;
+}
+.a:before {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  left: -10px;
+  border-top: 2px solid #000;
+  border-left: 2px solid #000;
+  transition: width 1s, height 1s;
+}
+.a:after {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  right: -10px;
+  border-top: 2px solid #000;
+  border-right: 2px solid #000;
+  transition: width 1s, height 1s;
+}
+.b:before {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: 0;
+  left: -10px;
+  border-bottom: 2px solid #000;
+  border-left: 2px solid #000;
+  transition: width 1s, height 1s;
+}
+.b:after {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: 0;
+  right: -10px;
+  border-bottom: 2px solid #000;
+  border-right: 2px solid #000;
+  transition: width 1s, height 1s;
+}

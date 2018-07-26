@@ -1,0 +1,27 @@
+<div class="job-create">
+  <h1 class="job-create-header">Job creation</h1>
+  <div class="job-create-form-wrapper">
+    <div class="a">
+      <div class="b">
+        <form class="job-create-form" (ngSubmit)="onSubmit(form)" #form="ngForm" name="myForm">
+          <label for="name" class="label name-label">Name</label>
+          <input type="text" id="name" class="name-input" name="name" ngModel required minlength="2" maxlength="16"
+                 placeholder="2-16 characters">
+          <label class="description-label label" for="description">Description</label>
+          <textarea ngModel class="job-description-area" #description name="description" id="description"></textarea>
+          <label for="complexity-level-select" class="label complexity-label">Choose complexity</label>
+          <select [(ngModel)]="selectedValue" id="complexity-level-select" class="complexity-select"  name="complexityLevel" required>
+            <option [value]="level" *ngFor="let level of complexityLevels"> {{level}}</option>
+          </select>
+          <button type="submit" [ngStyle]="{cursor: disabled ? 'none' : 'pointer'}" [disabled]="form.invalid"
+                  class="submit-btn">Create
+          </button>
+          <div class="cancel-wrapper">
+            <span class="cancel-creation" (click)="onCancelCreation()">Cancel</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

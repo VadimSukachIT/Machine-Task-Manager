@@ -22,6 +22,8 @@ import { HomeComponent } from './components/home/home.component';
 import { AndroidEditComponent } from './components/androids/android/android-edit/android-edit.component';
 import { TagInputComponent } from './components/tag-input/tag-input.component';
 import { TagComponent } from './components/tag-input/tag/tag.component';
+import { JobCreationComponent } from './components/jobs/job/job-creation/job-creation.component';
+import { JobEditComponent } from './components/jobs/job/job-edit/job-edit.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { TagComponent } from './components/tag-input/tag/tag.component';
     AndroidEditComponent,
     TagInputComponent,
     TagComponent,
+    JobCreationComponent,
+    JobEditComponent,
 
   ],
   imports: [
@@ -46,6 +50,7 @@ import { TagComponent } from './components/tag-input/tag/tag.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ AuthService, AndroidService, JobsService],
   bootstrap: [AppComponent]

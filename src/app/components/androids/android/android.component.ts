@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AndroidService} from "../../../services/android.service";
+import {AssignService} from "../../../services/assign.service";
 
 @Component({
   selector: 'app-android',
@@ -7,24 +8,25 @@ import {AndroidService} from "../../../services/android.service";
   styleUrls: ['./android.component.css']
 })
 export class AndroidComponent implements OnInit {
- @Input() android: {
-    name: string,
-    status: boolean,
-    assignedJob: {
-      name: string,
-      complexityLevel: string
-    }
-    assignedJobComplexity: string,
-    avatar: string,
-    reliability: number
-  };
+ @Input() android;
+   // : {
+ //    name: string,
+ //    status: boolean,
+ //    assignedJob: {
+ //      name: string,
+ //      complexityLevel: string
+ //    }
+ //    avatar: string,
+ //    reliability: number,
+ //   skills: string[];
+ //  };
 
   @Output() onDeleteAndroid = new EventEmitter<string>();
   @Output() onEnableEditMode = new EventEmitter<{}>();
 
 
 
-  constructor(private androidService: AndroidService) { }
+  constructor(private assignService: AssignService) { }
 
   ngOnInit() {
 
@@ -36,5 +38,10 @@ export class AndroidComponent implements OnInit {
 
   onDelete(android) {
     this.onDeleteAndroid.emit(android._id);
+  }
+
+  startAssign() {
+    this.assignService.changeMode(true);
+    this.assignService.saveAndroid(this.android);
   }
 }

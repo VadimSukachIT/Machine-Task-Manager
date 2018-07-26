@@ -1,4 +1,7 @@
+<div class="jobs-page">
+  <div class="jobs">
+    <app-job *ngFor="let job of jobs" (onEnableJobEditMode)="onEnableEdit($event)" [job]="job" (onDeleteJob)="onDelete($event)"></app-job>
+  </div>
+</div>
 
-<p>
-  jobs works!
-</p>
+

@@ -10,7 +10,9 @@
       <app-android-edit (cancelCreation)="onCancelCreation()" *ngIf="editAndroidMode && !createAndroidMode" [android]="editedAndroid"></app-android-edit>
     </div>
     <div class="main-jobs-section">
-      <app-jobs></app-jobs>
+      <app-jobs (onJobEdit)="onEnableJobEdit($event)" *ngIf="!editJobMode && !createJobMode"></app-jobs>
+      <app-job-creation *ngIf="createJobMode && !editJobMode" (cancelJobCreation)="onDisableJobCreate()"></app-job-creation>
+      <app-job-edit (cancelJobEdit)="onDisableJobCreate()" *ngIf="!createJobMode && editJobMode" [job]="editedJob"></app-job-edit>
     </div>
   </div>
 </div>

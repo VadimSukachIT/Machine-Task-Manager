@@ -12,24 +12,26 @@ export class AndroidCreateComponent implements OnInit {
   android;
 
 
-  constructor(private androidService: AndroidService, httpClient: HttpClient) {
+  constructor(private androidService: AndroidService) {
   }
 
   ngOnInit() {
   }
 
-  onSubmit(form) {
+  async onSubmit(form) {
     if (form.valid) {
       this.android = {
         name: form.value.name,
         skills: this.androidService.getSkills()
       };
-      this.androidService.addAndroid(this.android);
+      await this.androidService.createAndroid(this.android);
       this.androidService.clearSkills();
+      this.cancelCreation.emit();
     }
   }
 
   onCancelCreation() {
     this.cancelCreation.emit();
+    this.androidService.clearSkills()
   }
 }

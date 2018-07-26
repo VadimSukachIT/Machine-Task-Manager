@@ -3,6 +3,6 @@
     <input class="skills-input" [(ngModel)]="tagName" placeholder="Add skill..." #tagInput (keyup)="addTag($event)">
   </div>
   <div class="skills-area">
-    <app-tag *ngFor="let skill of skills" [newSkill]="skill" (deleteSkill)="deleteSkill()"></app-tag>
+    <app-tag *ngFor="let skill of skills" [newSkill]="skill" (deleteSkill)="deleteSkill(skill)"></app-tag>
   </div>
 </div>

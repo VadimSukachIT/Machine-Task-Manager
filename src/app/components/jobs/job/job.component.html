@@ -1,3 +1,21 @@
-<p>
-  job works!
-</p>
+<div class="a" (click)="onTarget()">
+  <div class="b">
+    <div class="job">
+      <div class="job-header">
+        <span class="job-name">{{job.name}}</span>
+        <span class="job-complexity">{{job.complexityLevel}}<button type="button" class="job-edit"
+                                                                    (click)="onEnableJobEdit()"></button>
+          <button type="button" class="job-delete" (click)="onDelete(job)"></button></span>
+      </div>
+      <div class="job-description">
+        <span class="description" *ngIf="job.description">{{job.description}}</span>
+        <span class="description" *ngIf="!job.description">No description</span>
+      </div>
+      <div class="assigned-androids-block">
+        <span class="assignedAndroids" *ngIf="job.assignedAndroids.length !== 0">Assigned androids: <span
+          *ngFor="let android of job.assignedAndroids" class="assigned-androids"><{{android.name}}>     </span></span>
+        <span class="no-assigned-androids" *ngIf="job.assignedAndroids.length === 0">No assigned androids yet</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,12 +5,15 @@
   font-size: 18px;
   box-sizing: border-box;
   outline: none;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 
 }
 
 .skill-input-wrapper {
   background: white;
   min-height: 100px;
+  border-radius: 15px;
 }
 
 .skills-area {
@@ -19,4 +22,5 @@
   flex-wrap: wrap;
   padding: 0 5px 10px 5px;
   box-sizing: border-box;
+  border-radius: 10px;
 }

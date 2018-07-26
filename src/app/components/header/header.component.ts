@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {AndroidService} from "../../services/android.service";
 
 @Component({
   selector: 'app-header',
@@ -11,13 +12,14 @@ export class HeaderComponent implements OnInit {
   @Output() disableAndroidCreate = new EventEmitter<void>();
   @Output() disableJobCreate = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(private androidService: AndroidService) { }
 
   ngOnInit() {
   }
 
   onEnableAndroidCreate() {
     this.enableAndroidCreate.emit();
+    this.androidService.clearSkills();
   }
 
   onDisableAndroidCreate() {

@@ -1,28 +1,36 @@
 <div class="a">
   <div class="b">
-
     <div class="android">
       <div class="android-description">
         <div class="android-avatar">
           <img class="android-avatar-img" [src]="android.avatar">
         </div>
-        <div class="android-name-and-buttons">
-          <div class="android-name-and-status">
+        <div class="android-info">
+          <div class="android-name-buttons">
             <span class="android-name"> {{android.name}}</span>
-            <span class="android-status"
-                  [ngStyle]="{'background-color':android.status === true ? 'green' : 'red' }"></span>
+          </div>
+          <div class="android-status tagged">
+            <span *ngIf="android.status">Status: enabled</span>
+            <span *ngIf="!android.status">Status: disabled</span>
+          </div>
+          <div class="android-reliability tagged">
+            <span class="reliability">Reliability: {{android.reliability}}</span>
+          </div>
+          <div class="android-job-info">
+            <div class="job-name" *ngIf="android.assignedJob.name !== ''">Job: {{android.assignedJob.name}}send flowers</div>
+            <div class="job-name" *ngIf="android.assignedJob.name === ''">Job: none</div>
+            <span class="job-name-assign" *ngIf="android.status" (click)="startAssign()">Assign to Job</span>
           </div>
           <div class="android-buttons">
             <button type="button" class="tag btn android-edit-btn" (click)="onEnableEdit()"></button>
             <button type="button" class="tag btn android-delete-btn" (click)="onDelete(android)"></button>
-            <span class="tag android-reliability">{{android.reliability}}</span>
           </div>
         </div>
-      </div>
-      <div class="android-job-description">
-        <span class="job-name" *ngIf="android.assignedJob.name !== ''">{{android.assignedJob.name}}</span>
-        <span class="job-name-assign" *ngIf="android.assignedJob.name === ''">Assign to Job</span>
-        <span class="job-complexity" *ngIf="android.assignedJob.name !== ''">{{android.assignedJob.complexityLevel}}</span>
+        <div class="buttons-skills">
+          <div class="skills" *ngFor="let skill of android.skills">
+              <span class="skill-name">{{skill}}</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

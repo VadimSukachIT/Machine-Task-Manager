@@ -14,13 +14,11 @@ export class AuthService {
 
   async registerUser(email, password) {
     return new Promise(async (res, rej) => {
-      const req = this.httpClient.post('http://localhost:3000/api/users', {email, password}).subscribe((response) => {
-        console.log('Усешно зарегался');
+      const req = this.httpClient.post('http://localhost:3000/api/user', {email, password}).subscribe((response) => {
         this.login(email, password).then(() => {
           res()
         });
       }, error1 => {
-        console.log(error1);
         rej(error1);
       })
     })
@@ -28,14 +26,14 @@ export class AuthService {
 
   login(email, password) {
     return new Promise((res, rej) => {
-      this.httpClient.post('http://localhost:3000/api/users/login', {
+      this.httpClient.post('http://localhost:3000/api/user/login', {
         email,
         password,
       }, {
         observe: 'response',
       }).subscribe((response) => {
         localStorage.setItem('authToken', response.body['token']);
-        this.router.navigate(['/androids']);
+        this.router.navigate(['/home']);
         res();
       }, error1 => {
         console.log(error1);

@@ -1,0 +1,27 @@
+<div class="job-create">
+  <h1 class="job-create-header">Edit job</h1>
+  <div class="job-create-form-wrapper">
+    <div class="a">
+      <div class="b">
+        <form class="job-create-form"  [formGroup]="myForm"  name="myForm">
+          <label for="name" class="label name-label">Name</label>
+          <input type="text" id="name" class="name-input" name="name"
+                 placeholder="2-16 characters" formControlName="name">
+          <label class="description-label label" for="description">Description</label>
+          <textarea formControlName="description" class="job-description-area" #description name="description" id="description"></textarea>
+          <label for="complexity-level-select" class="label complexity-label">Choose complexity</label>
+          <select #select id="complexity-level-select" class="complexity-select"  name="complexityLevel">
+            <option [value]="level" *ngFor="let level of complexityLevels"> {{level}}</option>
+          </select>
+          <button type="button" [ngStyle]="{cursor: disabled ? 'none' : 'pointer'}" [disabled]="myForm.invalid"
+                  class="submit-btn" (click)="onSubmit()">Edit
+          </button>
+          <div class="cancel-wrapper">
+            <span class="cancel-creation" (click)="onCancelCreation()">Cancel</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

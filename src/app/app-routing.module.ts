@@ -13,10 +13,6 @@ import {HomeComponent} from "./components/home/home.component";
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  {path: 'androids', component: AndroidsComponent, canActivate: [AuthGuardService], children: [
-      {path: 'create', component: AndroidCreateComponent, canActivate: [AuthGuardService]}
-    ]},
-  {path: 'jobs', component: JobsComponent, canActivate: [AuthGuardService]},
   {path: 'signup', component: SignupComponent},
   {path: 'signin', component: SigninComponent},
   {path: '**', redirectTo: '/androids'}

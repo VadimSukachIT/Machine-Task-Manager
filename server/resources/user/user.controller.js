@@ -1,17 +1,17 @@
 const _ = require('lodash');
-const { generateAuthToken } = require('auth')
+const { generateAuthToken } = require('auth');
 const { access, secret } = require('config');
 const userService = require('./user.service');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 exports.create = async (req, res) => {
   let body = _.pick(req.body, ['email', 'password']);
-  const token = generateAuthToken(user);
 
   const user = await userService.create({
     ...body,
-    tokens: { access, token },
   });
-  res.header('x-auth', token).send(user);
+  res.send(user);
 };
 
 exports.getAll = async (req, res) => {
@@ -25,7 +25,9 @@ exports.getAll = async (req, res) => {
 
 exports.login = async (req, res) => {
   const { email, password } = req.body;
+  console.log(email, password);
   const user = await userService.findOne({ email });
+
   if (!user) {
     res.status(400).send();
     return;
@@ -34,7 +36,8 @@ exports.login = async (req, res) => {
     res.status(400).send();
     return;
   }
-  const token = generateAuthToken(token);
+
+  let token = generateAuthToken(user);
 
   await userService.update({ _id: user._id }, {
     ...user,
@@ -55,7 +58,7 @@ exports.deleteToken = async (req, res) => {
     res.status(400).send();
   }
   res.status(200).send();
-}
+};
 
 exports.findByToken = async (token) => {
   const decoded = jwt.verify(token, secret);
@@ -67,5 +70,5 @@ exports.findByToken = async (token) => {
     'tokens.token': token,
     'tokens.access': access,
   })
-}
+};
 
